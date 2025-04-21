@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Падтрымайце DAVOLI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo {
+      max-width: 220px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .lang-switcher {
+      margin-bottom: 20px;
+    }
+    .lang-switcher button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
+    }
+    .lang-switcher button:hover {
+      background-color: #ccc;
+    }
+    .payment-methods {
+      margin-top: 30px;
+    }
+    .payment-method {
+      margin-bottom: 20px;
+    }
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a.button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="DAVOLI Logo" class="logo"/>
+
+  <div class="lang-switcher">
+    <button onclick="switchLang('be')">Беларуская</button>
+    <button onclick="switchLang('pl')">Polski</button>
+    <button onclick="switchLang('en')">English</button>
+  </div>
+
+  <h1 id="title">Падтрымайце праект DAVOLI</h1>
+
+  <div class="payment-methods">
+    <div class="payment-method">
+      <h2 id="bank-title">Пераклад у польскім банку (PLN)</h2>
+      <p>IBAN: PL86 1020 4900 0000 8802 3693 7995<br>BIC: BPKOPLPWXXX</p>
+      <a id="bank-link" class="button" href="#">Адкрыць у банку</a>
+    </div>
+
+    <div class="payment-method">
+      <h2 id="intl-title">Міжнародны пераклад (EUR, SEPA)</h2>
+      <p>IBAN: PL86 1020 4900 0000 8802 3693 7995<br>BIC: BPKOPLPWXXX</p>
+      <a id="intl-link" class="button" href="#">Адкрыць у банку</a>
+    </div>
+
+    <div class="payment-method">
+      <h2 id="paypal-title">PayPal</h2>
+      <a id="paypal-link" class="button" href="#">Перайсці ў PayPal</a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      be: {
+        title: "Падтрымайце праект DAVOLI",
+        bank: "Пераклад у польскім банку (PLN)",
+        intl: "Міжнародны пераклад (EUR, SEPA)",
+        paypal: "PayPal",
+        bankLink: "bank://singlepaymentsepa?iban=PL86102049000000880236937995&bic=BPKOPLPWXXX&name=DAVOLI&currency=PLN&msg=Падтрымка%20праекта%20DAVOLI",
+        intlLink: "bank://singlepaymentsepa?iban=PL86102049000000880236937995&bic=BPKOPLPWXXX&name=DAVOLI&currency=EUR&msg=Падтрымка%20праекта%20DAVOLI",
+        paypalLink: "https://paypal.me/DAVOLI2334?country.x=PL&locale.x=pl_PL&item_name=Падтрымка%20праекта%20DAVOLI"
+      },
+      pl: {
+        title: "Wspieraj projekt DAVOLI",
+        bank: "Przelew do polskiego banku (PLN)",
+        intl: "Przelew międzynarodowy (EUR, SEPA)",
+        paypal: "PayPal",
+        bankLink: "bank://singlepaymentsepa?iban=PL86102049000000880236937995&bic=BPKOPLPWXXX&name=DAVOLI&currency=PLN&msg=Wsparcie%20projektu%20DAVOLI",
+        intlLink: "bank://singlepaymentsepa?iban=PL86102049000000880236937995&bic=BPKOPLPWXXX&name=DAVOLI&currency=EUR&msg=Wsparcie%20projektu%20DAVOLI",
+        paypalLink: "https://paypal.me/DAVOLI2334?country.x=PL&locale.x=pl_PL&item_name=Wsparcie%20projektu%20DAVOLI"
+      },
+      en: {
+        title: "Support the DAVOLI project",
+        bank: "Transfer to Polish bank (PLN)",
+        intl: "International transfer (EUR, SEPA)",
+        paypal: "PayPal",
+        bankLink: "bank://singlepaymentsepa?iban=PL86102049000000880236937995&bic=BPKOPLPWXXX&name=DAVOLI&currency=PLN&msg=Support%20project%20DAVOLI",
+        intlLink: "bank://singlepaymentsepa?iban=PL86102049000000880236937995&bic=BPKOPLPWXXX&name=DAVOLI&currency=EUR&msg=Support%20project%20DAVOLI",
+        paypalLink: "https://paypal.me/DAVOLI2334?country.x=PL&locale.x=en_US&item_name=Support%20project%20DAVOLI"
+      }
+    };
+
+    function switchLang(lang) {
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("bank-title").innerText = translations[lang].bank;
+      document.getElementById("intl-title").innerText = translations[lang].intl;
+      document.getElementById("paypal-title").innerText = translations[lang].paypal;
+      document.getElementById("bank-link").href = translations[lang].bankLink;
+      document.getElementById("intl-link").href = translations[lang].intlLink;
+      document.getElementById("paypal-link").href = translations[lang].paypalLink;
+    }
+
+    switchLang('be');
+  </script>
+</body>
+</html>
